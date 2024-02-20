@@ -1,0 +1,147 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap');
+
+:root{
+    --fonte-padrao: "Noto Sans", sans-serif;
+    --fonte-destaque: "Oswald", sans-serif;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--fonte-destaque);
+}
+body{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(245, 245, 245);
+}
+.header{
+    background-color: rgb(12, 12, 12);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    margin: 15px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 7px rgba(0, 0, 0, .4);
+}
+.header-logo{
+    padding: 10px;
+}
+.header-logo-item{
+    width: 200px;
+}
+.header-nav-lista{
+    display: flex;
+    gap: 15px;
+}
+.header-nav-lista-item{
+    list-style-type: none;
+    padding: 5px;
+}
+.header-nav-lista-item a{
+    font-weight: 600;
+    font-size: 1.1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    padding: 5px;
+    transition: 500ms;
+}
+.header-nav-lista-item a:hover{
+    background-color: #acacaca6;
+    border-radius: 5px;
+}
+main{
+    font-family: var(--fonte-padrao);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+main section{
+    background-color: rgb(12, 12, 12);
+    width: 60vw;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 7px rgba(0, 0, 0, .4);
+}
+main section > h2{
+    text-align: center;
+    font-size: 1.5em;
+    color: #fff;
+}
+section > div{
+    width: 100%;
+    border-top: 1px solid #acacaca6;
+    padding: 10px;
+}
+section div > div{
+    padding: 5px;
+}
+section div > h3{
+    color: #fff;
+    font-size: 1.2em;
+}
+section div > label{
+    color: #fff;
+    font-size: 1.1em;
+}
+section div > input[type="file"]{
+    background-color: #E8BB5C;
+    padding: 2px;
+    border-radius: 2px;
+    font-size: .9em;
+}
+section div > input[type="text"]{
+    border: none;
+    padding: 2px;
+    border-radius: 2px;
+    font-size: .9em;
+}
+.section-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.nav div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.article1 div, .descrição, .faq, .cta, .footer-nav div, .footer-social div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.mensagem-produto{
+    display: flex;
+}
+.btn-confirmar{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+.btn-confirmar a{
+    margin: 20px;
+    width: 100px;
+    height: 30px;
+    background-color: #E8BB5C;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.1em;
+    color: #000;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: 300ms;
+}
+.btn-confirmar a:hover{
+    background-color: #e8bc5cc9;
+}
