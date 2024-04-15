@@ -4,3 +4,8 @@
     --fonte-padrao: "Noto Sans", sans-serif;
     --fonte-destaque: "Oswald", sans-serif;
 }
+*{
+    padding: 0;
+    margin: 0;
+    font-family: var(--fonte-padrao);
+}
