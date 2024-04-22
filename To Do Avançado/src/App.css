@@ -7,5 +7,167 @@
 *{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
     font-family: var(--fonte-padrao);
+}
+body{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(245, 245, 245);
+}
+.header{
+    background-color: rgb(12, 12, 12);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    margin: 15px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 7px rgba(0, 0, 0, .4);
+}
+.header-logo{
+    padding: 10px;
+}
+.header-logo-item{
+    width: 180px;
+}
+.header-nav-lista{
+    display: flex;
+    gap: 15px;
+}
+.header-nav-lista-item{
+    list-style-type: none;
+}
+.header-nav-lista-item a{
+    font-family: var(--fonte-destaque);
+    font-weight: 600;
+    font-size: 1.2em;
+    text-decoration: none;
+    color:white;
+    padding: 5px;
+    transition: 500ms;
+}
+.header-nav-lista-item a:hover{
+    background-color: #ffffff3d;
+    border-radius: 5px;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.lista{
+    background-color: rgb(12, 12, 12);
+    width: 500px;
+    height: auto;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 7px rgba(0, 0, 0, .4);
+}
+.lista-titulo{
+    font-weight: 500;
+    font-size: 1.8em;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 2px solid #fff;
+}
+.lista-add, .lista-nav{
+    padding: 10px;
+    border-bottom: 2px solid #fff;
+}
+.lista-add label, .lista-nav-pesquisa label, .editar label{
+    display: block;
+    color: white;
+    padding: 5px;
+}
+.lista-add input[type="text"], .lista-nav-pesquisa input, .editar input[type="text"]{
+    width: 50%;
+    font-weight: 600;
+    font-size: .9em;
+    padding: 4px 5px;
+    outline: none;
+    border-radius: 2px;
+    border: none;
+}
+.lista-add input[type="submit"], .editar input[type="submit"]{
+    width: 30px;
+    height: 28px;
+    padding: 1px;
+    margin: 2px;
+    font-size: 1em;
+    border-radius: 2px;
+    border: 1px solid #ffaa00;
+    cursor: pointer;
+}
+.lista-nav-pesquisa{
+    padding: 10px 20px;
+    border-bottom: 1px solid #ffffff5b;
+}
+.lista-nav-pesquisa input{
+    width: 150px !important;
+}
+.lista-nav-tipo{
+    padding: 5px 20px;
+}
+.lista-nav-tipo p{
+    color: white;
+}
+.lista-nav-tipo div button{
+    padding: 4px;
+    margin: 2px;
+    cursor: pointer;
+    border-radius: 2px;
+    border: none;
+    font-weight: 600;
+    background-color: #Efba53;
+}
+.tarefasRegistradas{
+    padding: 5px;
+}
+.tarefa{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 5px;
+}
+.tarefa p{
+    font-size: 1.1em;
+    font-weight: 600;
+}
+.tarefa div button{
+    margin: 5px;
+    padding: 2px;
+    cursor: pointer;
+    border: 1px solid #ffaa00;
+}
+.completo{
+    background-color: #Efba53;
+}
+.completo p{
+    font-style: italic;
+    text-decoration: line-through;
+}
+.editor{
+    background-color: rgb(12, 12, 12);
+    width: 500px;
+    height: auto;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 7px rgba(0, 0, 0, .4);
+}
+.tarefaEditar{
+    padding: 5px;
+}
+.editar{
+    padding: 10px;
+    border-top: 2px solid #fff;
 }
