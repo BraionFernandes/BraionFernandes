@@ -1,8 +1,14 @@
 import { useState } from 'react'
 import './App.css'
 import Editor from './components/editor'
+import CriadorTarefas from './components/CriadorTarefas'
+import PesquisarTarefas from './components/PesquisarTarefas'
+import FiltrarTarefas from './components/FiltrarTarefas'
+import Elemento from './components/Elemento.jsx'
+import {bancoDados} from './components/bancoDados.js'
 
 function App() {
+  const [dados,setDados]=bancoDados();
 
   return (
     <>
@@ -22,27 +28,15 @@ function App() {
       <main className='main'>
         <section className='lista'>
           <h1 className='lista-titulo'>Lista de Tarefas</h1>
-          <div className='lista-add'>
-            <label htmlFor="tarefaNome">Adicione sua tarefa</label>
-            <input type="text"  name='tarefaNome' required placeholder='Nome da nova tarefa...'/>
-            <input type="submit" value="+" />
-          </div>
+          <CriadorTarefas dados={dados} setDados={setDados}/>
           <div className='lista-nav'>
-            <div className='lista-nav-pesquisa'>
-              <label htmlFor="">Pesquisa</label>
-              <input type="search" name="pesquisa" placeholder='Pesquisar...'/>
-            </div>
-            <div className='lista-nav-tipo'>
-              <p>Filtrar:</p>
-              <div>
-                <button className='btnFiltro selecionado'>Todas</button>
-                <button className='btnFiltro'>Completo</button>
-                <button className='btnFiltro'>A Fazer</button>
-              </div>
-            </div>
+            <PesquisarTarefas/>
+            <FiltrarTarefas/>
           </div>
           <div className='tarefasRegistradas'>
-
+            {dados.map((todo) =>
+              <Elemento key={todo.id} todo={todo}/>
+            )}
           </div>
         </section>
       </main>

@@ -1,0 +1,32 @@
+import React,{useState} from 'react'
+
+export default function CriadorTarefas(props){
+    const addElemento=(text)=>{
+        const newDados=[
+            ...props.dados,
+            {
+                id: Date.now(),
+                text,
+                isCompleted: false,
+            },
+        ];
+    
+        props.setDados(newDados);
+    }
+    const [valor,setValor]=useState('')
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if(!valor) return;
+        addElemento(valor);
+        setValor("");
+    }
+    return(
+        <>
+            <form onSubmit={handleSubmit} className='lista-add'>
+                <label htmlFor="tarefaNome">Adicione sua tarefa</label>
+                <input type="text"  name='tarefaNome' placeholder='Nome da nova tarefa...' value={valor} required onChange={(e)=>setValor(e.target.value)}/>
+                <input type="submit" value="+"/>
+            </form>
+        </>
+    )
+}
