@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import './App.css'
 import Editor from './components/editor'
-import CriadorTarefas from './components/CriadorTarefas'
+import GerenciadorTarefas from './components/GerenciadorTarefas.jsx'
 import PesquisarTarefas from './components/PesquisarTarefas'
 import FiltrarTarefas from './components/FiltrarTarefas'
 import Elemento from './components/Elemento.jsx'
 import {bancoDados} from './components/bancoDados.js'
 
 function App() {
+
   const [dados,setDados]=bancoDados();
 
   return (
@@ -25,17 +26,18 @@ function App() {
           </ul>
         </nav>
       </header>
+      
       <main className='main'>
         <section className='lista'>
           <h1 className='lista-titulo'>Lista de Tarefas</h1>
-          <CriadorTarefas dados={dados} setDados={setDados}/>
+          <GerenciadorTarefas dados={dados} setDados={setDados}/>
           <div className='lista-nav'>
             <PesquisarTarefas/>
             <FiltrarTarefas/>
           </div>
           <div className='tarefasRegistradas'>
             {dados.map((todo) =>
-              <Elemento key={todo.id} todo={todo}/>
+              <Elemento key={todo.id} todo={todo} dados={dados} setDados={setDados}/>
             )}
           </div>
         </section>

@@ -1,16 +1,30 @@
 import React,{useState} from 'react'
 
 export default function Elemento(props){
+    
+    const removeElemento=(id)=>{
+        const newDados=[...props.dados]
+        const filterDados=newDados.filter(dado => dado.id !== id ? dado : null);
+        props.setDados(filterDados);
+    }
+
+
+    const completedElemento=(id)=>{
+        const newDados=[...props.dados]
+        newDados.map((elemento)=>elemento.id === id ? elemento.isCompleted = !elemento.isCompleted : elemento)
+        props.setDados(newDados);
+    }
+    
     return(
         <>
-            <div className='tarefa'>
+            <div className='tarefa' style={{textDecoration: props.todo.isCompleted ? "line-through" : "", backgroundColor: props.todo.isCompleted ? "#Efba53" : "#fff"}}>
                 <div>
                     <p>{props.todo.text}</p>
                 </div>
                 <div>
-                    <button id="btnConcluir" className="material-symbols-outlined">done</button>
+                    <button id="btnConcluir" className="material-symbols-outlined" onClick={()=> completedElemento(props.todo.id)}>done</button>
                     <button id="btnEditar" className="material-symbols-outlined">edit</button>
-                    <button id="btnExcluir" className="material-symbols-outlined">close</button>
+                    <button id="btnExcluir" className="material-symbols-outlined" onClick={()=> removeElemento(props.todo.id)}>close</button>
                 </div>
             </div>
         </>

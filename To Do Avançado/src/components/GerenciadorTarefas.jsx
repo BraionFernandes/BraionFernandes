@@ -1,6 +1,9 @@
 import React,{useState} from 'react'
 
-export default function CriadorTarefas(props){
+export default function GerenciadorTarefas(props){
+
+    const [valor,setValor]=useState('')
+    
     const addElemento=(text)=>{
         const newDados=[
             ...props.dados,
@@ -10,16 +13,18 @@ export default function CriadorTarefas(props){
                 isCompleted: false,
             },
         ];
-    
         props.setDados(newDados);
+        console.log(props.dados);
     }
-    const [valor,setValor]=useState('')
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if(!valor) return;
         addElemento(valor);
         setValor("");
     }
+
     return(
         <>
             <form onSubmit={handleSubmit} className='lista-add'>
