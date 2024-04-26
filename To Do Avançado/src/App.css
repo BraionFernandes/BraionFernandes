@@ -129,7 +129,7 @@ main{
 .tarefasRegistradas{
     padding: 5px;
 }
-.tarefa{
+.tarefa, .tarefaEditar{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -138,7 +138,7 @@ main{
     border-radius: 5px;
     margin: 5px;
 }
-.tarefa p{
+.tarefa p, .tarefaEditar p{
     font-size: 1.1em;
     font-weight: 600;
 }

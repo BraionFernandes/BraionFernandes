@@ -14,7 +14,6 @@ export default function GerenciadorTarefas(props){
             },
         ];
         props.setDados(newDados);
-        console.log(props.dados);
     }
 
 

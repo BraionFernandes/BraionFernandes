@@ -14,6 +14,15 @@ export default function Elemento(props){
         newDados.map((elemento)=>elemento.id === id ? elemento.isCompleted = !elemento.isCompleted : elemento)
         props.setDados(newDados);
     }
+
+    const editarElemento=(id)=>{
+        const newDados=[...props.dados]
+        const filterDados=newDados.filter(dado => dado.id === id ? dado : null);
+        const naoEditado=[...props.dados]
+        const filternaoEditado=naoEditado.filter(dado => dado.id !== id ? dado : null);
+        props.setDadosEdit(filterDados);
+        props.setDados(filternaoEditado);
+    }
     
     return(
         <>
@@ -23,7 +32,7 @@ export default function Elemento(props){
                 </div>
                 <div>
                     <button id="btnConcluir" className="material-symbols-outlined" onClick={()=> completedElemento(props.todo.id)}>done</button>
-                    <button id="btnEditar" className="material-symbols-outlined">edit</button>
+                    <button id="btnEditar" className="material-symbols-outlined" onClick={()=> editarElemento(props.todo.id)}>edit</button>
                     <button id="btnExcluir" className="material-symbols-outlined" onClick={()=> removeElemento(props.todo.id)}>close</button>
                 </div>
             </div>

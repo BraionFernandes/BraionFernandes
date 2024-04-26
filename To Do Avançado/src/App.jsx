@@ -6,10 +6,12 @@ import PesquisarTarefas from './components/PesquisarTarefas'
 import FiltrarTarefas from './components/FiltrarTarefas'
 import Elemento from './components/Elemento.jsx'
 import {bancoDados} from './components/bancoDados.js'
+import {bancoEditor} from './components/bancoEditor.js'
 
 function App() {
 
   const [dados,setDados]=bancoDados();
+  const [dadosEdit,setDadosEdit]=bancoEditor();
 
   return (
     <>
@@ -28,6 +30,8 @@ function App() {
       </header>
       
       <main className='main'>
+        
+        <Editor dadosEdit={dadosEdit} setDadosEdit={setDadosEdit} dados={dados} setDados={setDados}/>
         <section className='lista'>
           <h1 className='lista-titulo'>Lista de Tarefas</h1>
           <GerenciadorTarefas dados={dados} setDados={setDados}/>
@@ -37,7 +41,7 @@ function App() {
           </div>
           <div className='tarefasRegistradas'>
             {dados.map((todo) =>
-              <Elemento key={todo.id} todo={todo} dados={dados} setDados={setDados}/>
+              <Elemento key={todo.id} todo={todo} dados={dados} setDados={setDados} dadosEdit={dadosEdit} setDadosEdit={setDadosEdit}/>
             )}
           </div>
         </section>
