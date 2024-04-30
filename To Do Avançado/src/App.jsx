@@ -8,10 +8,12 @@ import Elemento from './components/Elemento.jsx'
 import {bancoDados} from './components/bancoDados.js'
 import {bancoEditor} from './components/bancoEditor.js'
 
+
 function App() {
 
   const [dados,setDados]=bancoDados();
   const [dadosEdit,setDadosEdit]=bancoEditor();
+  const [search,setSearch]=useState("");
 
   return (
     <>
@@ -36,11 +38,11 @@ function App() {
           <h1 className='lista-titulo'>Lista de Tarefas</h1>
           <GerenciadorTarefas dados={dados} setDados={setDados}/>
           <div className='lista-nav'>
-            <PesquisarTarefas/>
+            <PesquisarTarefas dados={dados} search={search} setSearch={setSearch}/>
             <FiltrarTarefas/>
           </div>
           <div className='tarefasRegistradas'>
-            {dados.map((todo) =>
+            {dados.filter((todo)=>todo.text.toLowerCase().includes(search.toLowerCase())).map((todo) =>
               <Elemento key={todo.id} todo={todo} dados={dados} setDados={setDados} dadosEdit={dadosEdit} setDadosEdit={setDadosEdit}/>
             )}
           </div>
