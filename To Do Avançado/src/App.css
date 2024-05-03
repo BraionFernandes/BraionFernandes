@@ -117,14 +117,30 @@ main{
 .lista-nav-tipo p{
     color: white;
 }
-.lista-nav-tipo div button{
-    padding: 4px;
-    margin: 2px;
-    cursor: pointer;
-    border-radius: 2px;
+.filtro{
+    display: flex;
+    justify-content: space-around;
+}
+.filtro-status p, .filtro-ordem p{
+    font-weight: 400;
+}
+.filtro-status select{
+    width: 120px;
     border: none;
-    font-weight: 600;
-    background-color: #Efba53;
+    outline: none;
+    font-weight: 500;
+    margin: 5px;
+}
+.filtro-ordem button{
+    width: 80px;
+    margin: 5px;
+    border-radius: 3px;
+    border: 1px solid #Efba53;
+    cursor: pointer;
+}
+.filtro-ordem button:hover{
+    background-color: #ad7d1d;
+    color: white;
 }
 .tarefasRegistradas{
     padding: 5px;

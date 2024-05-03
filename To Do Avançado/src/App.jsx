@@ -14,6 +14,8 @@ function App() {
   const [dados,setDados]=bancoDados();
   const [dadosEdit,setDadosEdit]=bancoEditor();
   const [search,setSearch]=useState("");
+  const [filter,setFilter]=useState("All");
+  const [sort,setSort]=useState("Asc");
 
   return (
     <>
@@ -39,10 +41,14 @@ function App() {
           <GerenciadorTarefas dados={dados} setDados={setDados}/>
           <div className='lista-nav'>
             <PesquisarTarefas dados={dados} search={search} setSearch={setSearch}/>
-            <FiltrarTarefas/>
+            <FiltrarTarefas filter={filter} setFilter={setFilter} setSort={setSort}/>
           </div>
           <div className='tarefasRegistradas'>
-            {dados.filter((todo)=>todo.text.toLowerCase().includes(search.toLowerCase())).map((todo) =>
+            {dados
+              .filter((todo) => filter === "All" ? true : filter === "completed" ? todo.isCompleted : !todo.isCompleted)
+              .filter((todo) => todo.text.toLowerCase().includes(search.toLowerCase()))
+              .sort((a, b) => sort === "Asc" ? a.text.localeCompare(b.text) : b.text.localeCompare(a.text))
+              .map((todo) =>
               <Elemento key={todo.id} todo={todo} dados={dados} setDados={setDados} dadosEdit={dadosEdit} setDadosEdit={setDadosEdit}/>
             )}
           </div>
