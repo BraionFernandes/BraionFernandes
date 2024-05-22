@@ -4,7 +4,7 @@ export default function FiltrarTarefas(props){
     return(
         <>
             <div className='lista-nav-tipo'>
-                <p>Filtrar:</p>
+                <p>Filtrar</p>
               <div className='filtro'>
                 <div className='filtro-status'>
                   <p>Status:</p>
@@ -16,8 +16,10 @@ export default function FiltrarTarefas(props){
                 </div>
                 <div className='filtro-ordem'>
                   <p>Ordem Alfabética:</p>
-                  <button onClick={()=> props.setSort("Asc")}>Asc</button>
-                  <button onClick={()=> props.setSort("Desc")}>Desc</button>
+                  <div className='filtro-ordem-buttons'>
+                    <button onClick={()=> props.setSort("Asc")}>Asc</button>
+                    <button onClick={()=> props.setSort("Desc")}>Desc</button>
+                  </div>
                 </div>
               </div>
             </div>

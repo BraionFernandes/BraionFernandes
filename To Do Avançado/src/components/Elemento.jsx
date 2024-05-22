@@ -26,7 +26,7 @@ export default function Elemento(props){
     
     return(
         <>
-            <div className='tarefa' style={{textDecoration: props.todo.isCompleted ? "line-through" : "", backgroundColor: props.todo.isCompleted ? "#Efba53" : "#fff"}}>
+            <div className='tarefa' style={{textDecoration: props.todo.isCompleted ? "line-through" : "", backgroundColor: props.todo.isCompleted ? "#85e95d" : "#E9BC5D"}}>
                 <div>
                     <p>{props.todo.text}</p>
                 </div>

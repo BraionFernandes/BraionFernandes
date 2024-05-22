@@ -1,0 +1,187 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap');
+:root{
+    --fonte-padrao: "Noto Sans", sans-serif;
+    --fonte-destaque: "Oswald", sans-serif;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--fonte-padrao);
+}
+body{
+    background-color: #f0f0f0;
+}
+.header{
+    background-color: rgb(12, 12, 12);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 7px rgba(0, 0, 0, .4);
+}
+.header-logo{
+    padding: 10px;
+}
+.header-logo-item{
+    width: 140px;
+}
+.header-nav-lista{
+    display: flex;
+    gap: 15px;
+}
+.header-nav-lista-item{
+    list-style-type: none;
+}
+.header-nav-lista-item a{
+    font-family: var(--fonte-destaque);
+    font-weight: 600;
+    font-size: 1.2em;
+    text-decoration: none;
+    color:white;
+    padding: 5px;
+    transition: 500ms;
+}
+.header-nav-lista-item a:hover{
+    background-color: #ffffff3d;
+    border-radius: 5px;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    
+}
+.lista{
+    width: 96%;
+    height: 470px;
+    background-color: #fff;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.199);
+    border-radius: 20px;
+    margin: 20px;
+    display: flex;
+}
+.lista-geren{
+    background-color: #000;
+    float: left;
+    width: 20%;
+    padding: 10px;
+    border-radius: 20px;
+}
+.lista-titulo{
+    font-family: var(--fonte-destaque);
+    font-size: 1.5em;
+    text-align: center;
+    color: white;
+
+}
+.lista-add, .lista-nav, .editor{
+    padding: 10px;
+    border-bottom: 2px solid #ffffff44;
+}
+.lista-add label, .editar label{
+    color: white;
+}
+.lista-add input[type="text"], .filtro-status select, .editar input[type="text"]{
+    padding: 5px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+}
+.lista-add input[type="submit"], .editar input[type="submit"]{
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 20px;
+    border: none;
+    background-color: #E9BC5D;
+}
+.tarefaEditar p{
+    background-color: #fff;
+    border-radius: 20px;
+    text-align: center;
+    padding: 2px;
+    margin: 2px;
+}
+.editar{
+    padding: 5px;
+}
+.lista-nav{
+    border: none !important;
+}
+.lista-nav-tipo > p, .editor > p{
+    font-size: 1.3em;
+    text-align: center;
+    color: white;
+}
+.filtro p{
+    color: white;
+    font-size: 1em;
+}
+.filtro-status, .filtro-ordem{
+    padding: 5px;
+}
+.filtro-status select{
+    font-size: 0.9em;
+    margin: 1px;
+}
+.filtro-ordem-buttons{
+    text-align: center;
+}
+.filtro-ordem-buttons button{
+    width: 80px;
+    height: 30px;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 20px;
+    border: none;
+    background-color: #E9BC5D;
+}
+.tarefas{
+    float: right;
+    width: 80%;
+}
+.pesquisar{
+    padding: 10px;
+}
+.tarefas-pesquisar label{
+    font-size: 1.1em;
+    padding: 0px 5px;
+}
+.tarefas-pesquisar input{
+    background-color: #E9BC5D;
+    color: #000;
+    padding: 5px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+}
+.tarefasRegistradas{
+    height: 86%;
+    padding: 10px;
+    overflow: auto;
+    margin: 5px;
+}
+.tarefasRegistradas::-webkit-scrollbar{
+    width: 10px;
+}
+.tarefasRegistradas::-webkit-scrollbar-thumb{
+    background-color: #E9BC5D;
+    border-radius: 20px;
+    
+}
+.tarefa{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+}

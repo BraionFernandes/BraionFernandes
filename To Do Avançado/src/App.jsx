@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import './App.css'
+// import './App.css'
+import './style.css'
 import Editor from './components/editor'
 import GerenciadorTarefas from './components/GerenciadorTarefas.jsx'
 import PesquisarTarefas from './components/PesquisarTarefas'
@@ -34,23 +35,32 @@ function App() {
       </header>
       
       <main className='main'>
-        
-        <Editor dadosEdit={dadosEdit} setDadosEdit={setDadosEdit} dados={dados} setDados={setDados}/>
         <section className='lista'>
-          <h1 className='lista-titulo'>Lista de Tarefas</h1>
-          <GerenciadorTarefas dados={dados} setDados={setDados}/>
-          <div className='lista-nav'>
-            <PesquisarTarefas dados={dados} search={search} setSearch={setSearch}/>
-            <FiltrarTarefas filter={filter} setFilter={setFilter} setSort={setSort}/>
+          <div className='lista-geren'>
+            <h1 className='lista-titulo'>Lista de Tarefas</h1>
+            <div className='lista-criador'>
+              <GerenciadorTarefas dados={dados} setDados={setDados}/>
+            </div>
+            <div>
+              <Editor dadosEdit={dadosEdit} setDadosEdit={setDadosEdit} dados={dados} setDados={setDados}/>
+            </div>
+            <div className='lista-nav'>
+              <FiltrarTarefas filter={filter} setFilter={setFilter} setSort={setSort}/>
+            </div>
           </div>
-          <div className='tarefasRegistradas'>
-            {dados
-              .filter((todo) => filter === "All" ? true : filter === "completed" ? todo.isCompleted : !todo.isCompleted)
-              .filter((todo) => todo.text.toLowerCase().includes(search.toLowerCase()))
-              .sort((a, b) => sort === "Asc" ? a.text.localeCompare(b.text) : b.text.localeCompare(a.text))
-              .map((todo) =>
-              <Elemento key={todo.id} todo={todo} dados={dados} setDados={setDados} dadosEdit={dadosEdit} setDadosEdit={setDadosEdit}/>
-            )}
+          <div className='tarefas'>
+            <div className='pesquisar'>
+              <PesquisarTarefas dados={dados} search={search} setSearch={setSearch}/>
+            </div>
+            <div className='tarefasRegistradas'>
+              {dados
+                .filter((todo) => filter === "All" ? true : filter === "completed" ? todo.isCompleted : !todo.isCompleted)
+                .filter((todo) => todo.text.toLowerCase().includes(search.toLowerCase()))
+                .sort((a, b) => sort === "Asc" ? a.text.localeCompare(b.text) : b.text.localeCompare(a.text))
+                .map((todo) =>
+                <Elemento key={todo.id} todo={todo} dados={dados} setDados={setDados} dadosEdit={dadosEdit} setDadosEdit={setDadosEdit}/>
+              )}
+            </div>
           </div>
         </section>
       </main>
