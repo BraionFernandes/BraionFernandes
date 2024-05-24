@@ -41,11 +41,13 @@ function App() {
             <div className='lista-criador'>
               <GerenciadorTarefas dados={dados} setDados={setDados}/>
             </div>
-            <div>
-              <Editor dadosEdit={dadosEdit} setDadosEdit={setDadosEdit} dados={dados} setDados={setDados}/>
-            </div>
             <div className='lista-nav'>
               <FiltrarTarefas filter={filter} setFilter={setFilter} setSort={setSort}/>
+            </div>
+            <div className='lista-logo'>
+              <picture className='lista-logo-picture'>
+              <img className='lista-logo-item' src="../img/logo/empire.png" alt="Empire Logo" />
+              </picture>
             </div>
           </div>
           <div className='tarefas'>
@@ -64,6 +66,14 @@ function App() {
           </div>
         </section>
       </main>
+      {dadosEdit && dadosEdit.length > 0 &&(
+        <div className='editor-background-div'>
+          <div className='div-editor'>
+            <Editor dadosEdit={dadosEdit} setDadosEdit={setDadosEdit} dados={dados} setDados={setDados}/>
+          </div>
+        </div>
+      )}
+      
     </>
   )
 }

@@ -11,6 +11,7 @@
     font-family: var(--fonte-padrao);
 }
 body{
+    position: relative;
     background-color: #f0f0f0;
 }
 .header{
@@ -68,6 +69,8 @@ body{
     display: flex;
 }
 .lista-geren{
+    display: flex;
+    flex-direction: column;
     background-color: #000;
     float: left;
     width: 20%;
@@ -87,6 +90,7 @@ body{
 }
 .lista-add label, .editar label{
     color: white;
+    padding: 2px;
 }
 .lista-add input[type="text"], .filtro-status select, .editar input[type="text"]{
     padding: 5px;
@@ -113,7 +117,7 @@ body{
 .editar{
     padding: 5px;
 }
-.lista-nav{
+.editor{
     border: none !important;
 }
 .lista-nav-tipo > p, .editor > p{
@@ -143,6 +147,17 @@ body{
     border-radius: 20px;
     border: none;
     background-color: #E9BC5D;
+}
+.lista-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 130px;
+    padding: 10px;
+}
+.lista-logo-item{
+    
 }
 .tarefas{
     float: right;
@@ -184,4 +199,23 @@ body{
     padding: 10px;
     border-radius: 5px;
     margin: 5px;
+}
+.div-editor{
+    border-radius: 20px;
+    padding: 10px;
+    position: absolute;
+    background-color: #000;
+}
+.editor-background-div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000069;
 }

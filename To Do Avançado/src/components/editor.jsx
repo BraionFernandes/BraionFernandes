@@ -28,9 +28,9 @@ export default function Editor(props){
             <div className='editor'>
                 <p>Editor</p>
                 <div className='tarefaEditar'>
-                {props.dadosEdit && props.dadosEdit.length > 0 && (
-                    <p>{props.dadosEdit[0].text}</p>
-                )}    
+                    {props.dadosEdit && props.dadosEdit.length > 0 &&(
+                        <p>{props.dadosEdit[0].text}</p>
+                    )}
                 </div>
                 <form onSubmit={handleSubmit} className='editar'>
                     <label htmlFor="novoNome">Novo Nome:</label>
