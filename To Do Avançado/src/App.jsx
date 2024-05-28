@@ -17,6 +17,11 @@ function App() {
   const [search,setSearch]=useState("");
   const [filter,setFilter]=useState("All");
   const [sort,setSort]=useState("Asc");
+  const [isFormVisible,setIsFormVisible]=useState(false);
+
+  const handleOpenForm=()=>{
+    setIsFormVisible(true);
+  }
 
   return (
     <>
@@ -26,54 +31,44 @@ function App() {
         </picture>
         <nav className='header-nav'>
           <ul className='header-nav-lista'>
-            <li className='header-nav-lista-item'><a href="#">Home</a></li>
             <li className='header-nav-lista-item'><a href="#">Empire</a></li>
             <li className='header-nav-lista-item'><a href="#">Serviços</a></li>
             <li className='header-nav-lista-item'><a href="#">Suporte</a></li>
           </ul>
         </nav>
+        <button className='header-button-creator' onClick={handleOpenForm}>Criar Tarefa</button>
       </header>
-      
       <main className='main'>
-        <section className='lista'>
-          <div className='lista-geren'>
-            <h1 className='lista-titulo'>Lista de Tarefas</h1>
-            <div className='lista-criador'>
-              <GerenciadorTarefas dados={dados} setDados={setDados}/>
-            </div>
-            <div className='lista-nav'>
-              <FiltrarTarefas filter={filter} setFilter={setFilter} setSort={setSort}/>
-            </div>
-            <div className='lista-logo'>
-              <picture className='lista-logo-picture'>
-              <img className='lista-logo-item' src="../img/logo/empire.png" alt="Empire Logo" />
-              </picture>
-            </div>
+        <section className='tarefas'>
+          <div className='tarefas-pesquisar'>
+            <PesquisarTarefas dados={dados} search={search} setSearch={setSearch}/>
           </div>
-          <div className='tarefas'>
-            <div className='pesquisar'>
-              <PesquisarTarefas dados={dados} search={search} setSearch={setSearch}/>
-            </div>
-            <div className='tarefasRegistradas'>
-              {dados
-                .filter((todo) => filter === "All" ? true : filter === "completed" ? todo.isCompleted : !todo.isCompleted)
-                .filter((todo) => todo.text.toLowerCase().includes(search.toLowerCase()))
-                .sort((a, b) => sort === "Asc" ? a.text.localeCompare(b.text) : b.text.localeCompare(a.text))
-                .map((todo) =>
-                <Elemento key={todo.id} todo={todo} dados={dados} setDados={setDados} dadosEdit={dadosEdit} setDadosEdit={setDadosEdit}/>
-              )}
-            </div>
+          <div className='tarefas-filtros'>
+            <FiltrarTarefas filter={filter} setFilter={setFilter} setSort={setSort}/>
+          </div>
+          <div className='tarefasRegistradas'>
+            {dados
+              .filter((todo) => filter === "All" ? true : filter === "completed" ? todo.isCompleted : !todo.isCompleted)
+              .filter((todo) => todo.text.toLowerCase().includes(search.toLowerCase()))
+              .sort((a, b) => sort === "Asc" ? a.text.localeCompare(b.text) : b.text.localeCompare(a.text))
+              .map((todo) =>
+              <Elemento key={todo.id} todo={todo} dados={dados} setDados={setDados} dadosEdit={dadosEdit} setDadosEdit={setDadosEdit}/>
+            )}
           </div>
         </section>
       </main>
       {dadosEdit && dadosEdit.length > 0 &&(
-        <div className='editor-background-div'>
-          <div className='div-editor'>
+        <div className='editor'>
+          <div className='editor-div'>
             <Editor dadosEdit={dadosEdit} setDadosEdit={setDadosEdit} dados={dados} setDados={setDados}/>
           </div>
         </div>
       )}
-      
+      {isFormVisible &&(
+        <div className='criadorTarefas'>
+            <GerenciadorTarefas dados={dados} setDados={setDados} setIsFormVisible={setIsFormVisible}/>
+        </div>
+      )}
     </>
   )
 }

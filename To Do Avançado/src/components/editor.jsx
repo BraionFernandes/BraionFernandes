@@ -25,19 +25,17 @@ export default function Editor(props){
 
     return(
         <>
-            <div className='editor'>
-                <p>Editor</p>
-                <div className='tarefaEditar'>
-                    {props.dadosEdit && props.dadosEdit.length > 0 &&(
-                        <p>{props.dadosEdit[0].text}</p>
-                    )}
-                </div>
-                <form onSubmit={handleSubmit} className='editar'>
-                    <label htmlFor="novoNome">Novo Nome:</label>
-                    <input type="text" name='novoNome' className='editorBtn' placeholder='Novo Texto' value={valor} required onChange={(e)=>setValor(e.target.value)}/>
-                    <input type="submit" className='editorSubmit' value="+" />
-                </form>
+            <p>Editor</p>
+            <div className='editor-tarefa'>
+                {props.dadosEdit && props.dadosEdit.length > 0 &&(
+                    <p>{props.dadosEdit[0].text}</p>
+                )}
             </div>
+            <form onSubmit={handleSubmit} className='editor-form'>
+                <label htmlFor="novoNome">Novo Nome:</label>
+                <input type="text" name='novoNome' className='editorBtn' placeholder='Novo Texto' value={valor} required onChange={(e)=>setValor(e.target.value)}/>
+                <input type="submit" className='editorSubmit' value="+" />
+            </form>
         </>
     ) 
 }

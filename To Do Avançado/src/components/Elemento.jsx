@@ -30,7 +30,7 @@ export default function Elemento(props){
                 <div>
                     <p>{props.todo.text}</p>
                 </div>
-                <div>
+                <div className='tarefa-buttons'>
                     <button id="btnConcluir" className="material-symbols-outlined" onClick={()=> completedElemento(props.todo.id)}>done</button>
                     <button id="btnEditar" className="material-symbols-outlined" onClick={()=> editarElemento(props.todo.id)}>edit</button>
                     <button id="btnExcluir" className="material-symbols-outlined" onClick={()=> removeElemento(props.todo.id)}>close</button>
