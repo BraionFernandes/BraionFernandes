@@ -40,11 +40,13 @@ function App() {
       </header>
       <main className='main'>
         <section className='tarefas'>
-          <div className='tarefas-pesquisar'>
-            <PesquisarTarefas dados={dados} search={search} setSearch={setSearch}/>
-          </div>
-          <div className='tarefas-filtros'>
-            <FiltrarTarefas filter={filter} setFilter={setFilter} setSort={setSort}/>
+          <div className='tarefasTools'>
+            <div className='tarefas-pesquisar'>
+              <PesquisarTarefas dados={dados} search={search} setSearch={setSearch}/>
+            </div>
+            <div className='tarefas-filtros'>
+              <FiltrarTarefas filter={filter} setFilter={setFilter} setSort={setSort}/>
+            </div>
           </div>
           <div className='tarefasRegistradas'>
             {dados

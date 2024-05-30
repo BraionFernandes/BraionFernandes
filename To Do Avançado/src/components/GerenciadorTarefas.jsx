@@ -26,12 +26,12 @@ export default function GerenciadorTarefas(props){
     }
 
     return(
-        <>
+        <div className='criador'>
             <form onSubmit={handleSubmit} className='criadorTarefas-form'>
-                <label htmlFor="tarefaNome">Adicione sua tarefa</label>
+                <label htmlFor="tarefaNome">Adicionar nova tarefa</label>
                 <input type="text"  name='tarefaNome' placeholder='Nome da nova tarefa...' value={valor} required onChange={(e)=>setValor(e.target.value)}/>
                 <input type="submit" value="+"/>
             </form>
-        </>
+        </div>
     )
 }

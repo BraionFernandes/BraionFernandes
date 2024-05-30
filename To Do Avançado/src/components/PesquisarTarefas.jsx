@@ -1,8 +1,6 @@
 import React,{useState} from 'react'
 
 export default function PesquisarTarefas(props){
-    
-
     return(
         <>
               <label htmlFor="pesquisa">Pesquisa</label>
