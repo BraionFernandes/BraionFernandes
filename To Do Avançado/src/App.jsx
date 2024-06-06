@@ -1,6 +1,4 @@
 import { useState } from 'react'
-// import './App.css'
-import './style.css'
 import Editor from './components/editor'
 import GerenciadorTarefas from './components/GerenciadorTarefas.jsx'
 import PesquisarTarefas from './components/PesquisarTarefas'
@@ -8,7 +6,6 @@ import FiltrarTarefas from './components/FiltrarTarefas'
 import Elemento from './components/Elemento.jsx'
 import {bancoDados} from './components/bancoDados.js'
 import {bancoEditor} from './components/bancoEditor.js'
-
 
 function App() {
 
@@ -36,16 +33,21 @@ function App() {
             <li className='header-nav-lista-item'><a href="#">Suporte</a></li>
           </ul>
         </nav>
-        <button className='header-button-creator' onClick={handleOpenForm}>Criar Tarefa</button>
+        
       </header>
       <main className='main'>
         <section className='tarefas'>
           <div className='tarefasTools'>
-            <div className='tarefas-pesquisar'>
-              <PesquisarTarefas dados={dados} search={search} setSearch={setSearch}/>
+            <div className='tarefasTools-filter'>
+              <div className='tarefas-pesquisar'>
+                <PesquisarTarefas dados={dados} search={search} setSearch={setSearch}/>
+              </div>
+              <div className='tarefas-filtros'>
+                <FiltrarTarefas filter={filter} setFilter={setFilter} setSort={setSort}/>
+              </div>
             </div>
-            <div className='tarefas-filtros'>
-              <FiltrarTarefas filter={filter} setFilter={setFilter} setSort={setSort}/>
+            <div className='tarefasTools-creator'>
+              <button className='button-creator' onClick={handleOpenForm}>Criar Tarefa</button>
             </div>
           </div>
           <div className='tarefasRegistradas'>
